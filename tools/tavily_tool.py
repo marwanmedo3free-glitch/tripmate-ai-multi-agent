@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+print("TAVILY KEY EXISTS:", bool(os.getenv("TAVILY_API_KEY")))
+
 api_key=os.getenv("TAVILY_API_KEY")
 
 client=TavilyClient(api_key)
