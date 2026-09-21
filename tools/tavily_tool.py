@@ -3,7 +3,16 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-client=TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+api_key=os.getenv("TAVILY_API_KEY")
+
+client=TavilyClient(api_key)
+
+if api_key:
+    tavily_client = TavilyClient(api_key=api_key)
+else:
+    tavily_client = None
+
+
 
 def tavily_search(query):
     response=client.search(

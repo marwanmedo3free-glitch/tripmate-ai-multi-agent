@@ -99,10 +99,11 @@ async def health_check():
         "message": "AI Travel Planner API is running"
     }
 
+from fastapi.responses import Response
 
-@app.get("/favicon.ico")
+@app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
-    return JSONResponse(content={})
+    return Response(status_code=204)
 
 
 
