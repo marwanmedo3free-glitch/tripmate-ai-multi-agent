@@ -3,7 +3,12 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-print("TAVILY KEY EXISTS:", bool(os.getenv("TAVILY_API_KEY")))
+import os
+
+print("TAVILY:", bool(os.getenv("TAVILY_API_KEY")))
+print("GROQ:", bool(os.getenv("GROQ_API_KEY")))
+print("DATABASE:", bool(os.getenv("DATABASE_URL")))
+
 
 api_key=os.getenv("TAVILY_API_KEY")
 
