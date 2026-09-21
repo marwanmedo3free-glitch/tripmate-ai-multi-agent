@@ -21,7 +21,7 @@ from langchain_core.messages import (
     AIMessage,
     SystemMessage,
 )
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 from tools.tavily_tool import tavily_search
 from tools.flight_tool import search_flights
 
@@ -40,8 +40,8 @@ def get_database_url():
     return database_url
 
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
     raise ValueError("GROQ_API_KEY is missing. Please add it to your .env file.")
 
 
@@ -49,9 +49,9 @@ if not GROQ_API_KEY:
 # LLM
 # =========================
 
-llm = ChatGroq(
+llm = ChatGoogleGenerativeAI(
     model="openai/gpt-oss-120b",
-    api_key=GROQ_API_KEY
+    api_key=GEMINI_API_KEY
 )
 
 
