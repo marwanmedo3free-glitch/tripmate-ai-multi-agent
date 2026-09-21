@@ -21,7 +21,7 @@ from langchain_core.messages import (
     AIMessage,
     SystemMessage,
 )
-from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 from tools.tavily_tool import tavily_search
 from tools.flight_tool import search_flights
 
@@ -40,18 +40,18 @@ def get_database_url():
     return database_url
 
 
-# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-# if not GROQ_API_KEY:
-#     raise ValueError("GROQ_API_KEY is missing. Please add it to your .env file.")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY is missing. Please add it to your .env file.")
 
 
 # =========================
 # LLM
 # =========================
 
-llm = ChatOllama(
-    model="llama3.2"
-    
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    api_key=GROQ_API_KEY
 )
 
 
